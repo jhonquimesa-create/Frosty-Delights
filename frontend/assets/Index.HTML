@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frosty Delights - Helados Artesanales</title>
+    <link rel="shortcut icon" href="/frontend/images/Logo Frosty Delights .png" type="image/x-icon">
+    <style>
+        /* --- ESTILOS GENERALES Y COLORES VIVOS --- */
+        :root {
+            --color-principal: #ff477e; /* Rosa Fresa Intenso */
+            --color-secundario: #ffb703; /* Amarillo Mango Vibrante */
+            --color-texto: #1a0f0a; /* Marrón Chocolate Oscuro */
+            --color-fondo: #fffbf4; /* Crema de Vainilla Suave */
+            --color-blanco: #ffffff;
+            --color-acento: #02c39a; /* Verde Menta Eléctrico */
+        }
+dwefwefwefw
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER Y NAVEGACIÓN (FLEXBOX) --- */
+        header {
+            background-color: var(--color-principal);
+            color: var(--color-blanco);
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 71, 126, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px var(--color-texto);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--color-secundario);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 18px;
+            border-radius: 20px;
+            background-color: rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--color-secundario);
+            color: var(--color-texto);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--color-principal);
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--color-principal), transparent);
+            margin: 20px 0;
+        }
+
+        /* --- SECCIÓN PRESENTACIÓN --- */
+        .presentacion-box {
+            background: var(--color-blanco);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        /* --- PRODUCTOS Y TARJETAS --- */
+        .productos-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--color-blanco);
+            border-radius: 15px;
+            width: 280px;
+            box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            border: 3px solid var(--color-secundario);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(255, 71, 126, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 15px 0 5px;
+            color: var(--color-principal);
+        }
+
+        .card p {
+            padding: 0 15px 15px;
+            font-size: 0.95rem;
+        }
+
+        /* --- LISTAS ORDENADAS --- */
+        ol {
+            max-width: 650px;
+            margin: 0 auto;
+            padding-left: 20px;
+        }
+
+        ol li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            background-color: var(--color-blanco);
+            border-left: 5px solid var(--color-acento);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        /* --- MULTIMEDIA (VIDEO E IFRAME) --- */
+        video, iframe {
+            display: block;
+            margin: 0 auto;
+            border-radius: 15px;
+            border: 4px solid var(--color-secundario);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            max-width: 100%;
+        }
+
+        /* --- BUSCADOR DE TABLA --- */
+        .search-box {
+            max-width: 400px;
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid var(--color-principal);
+            border-radius: 25px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* --- TABLAS --- */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--color-blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ffebeb;
+        }
+
+        th {
+            background-color: var(--color-principal);
+            color: var(--color-blanco);
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: rgba(2, 195, 154, 0.1);
+        }
+
+        /* --- SECCIÓN BLOG (ARTICLE Y ASIDE) --- */
+        .blog-layout {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        article {
+            flex: 2;
+            background: var(--color-blanco);
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #ffebeb;
+        }
+
+        aside {
+            flex: 1;
+            background: var(--color-secundario);
+            padding: 20px;
+            border-radius: 12px;
+            color: var(--color-texto);
+        }
+
+        /* --- FORMULARIOS --- */
+        form {
+            background-color: var(--color-blanco);
+            padding: 30px;
+            border: 3px solid var(--color-principal);
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+            color: var(--color-principal);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid #ffebeb;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-acento);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background-color: var(--color-acento);
+            color: var(--color-blanco);
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #019875;
+        }
+
+        /* MENSÁJE DE CONFIRMACIÓN DINÁMICO */
+        .mensaje-alerta {
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        .mensaje-exito {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: var(--color-texto);
+            color: var(--color-blanco);
+            padding: 40px 20px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-contenido {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-contenido h3 {
+            color: var(--color-secundario);
+            margin-bottom: 10px;
+        }
+
+        .footer-contenido a {
+            color: var(--color-principal);
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .footer-contenido a:hover {
+            color: var(--color-secundario);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #33221a;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .blog-layout {
+                flex-direction: column;
+            }
+            .footer-contenido {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO PRINCIPAL Y NAVEGACIÓN -->
+    <header>
+        <div class="logo">
+            <h1>🍦 Frosty Delights</h1>
+            <p><em>"El sabor que refresca tus momentos"</em></p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#tabla">Catálogo</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="login.html">login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN PRINCIPAL -->
+    <main>
+        
+        <!-- Presentación -->
+        <section id="inicio">
+            <div class="presentacion-box">
+                <h2>Bienvenidos a Frosty Delights</h2>
+                <p>En <strong>Frosty Delights</strong> ofrecemos deliciosos helados preparados con ingredientes de alta calidad. Nuestro objetivo es brindar una experiencia refrescante y llena de sabor. Somos una empresa comprometida con la excelencia, ofreciendo productos <em>naturales, frescos y exquisitos</em> para todos nuestros clientes de Medellín.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Especialidades -->
+        <section id="productos">
+            <h2>Nuestras Especialidades</h2>
+            <div class="productos-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=500" alt="Helado de Chocolate Cremoso">
+                    <h3>Chocolate Belga</h3>
+                    <p>Helado cremoso elaborado con auténtico cacao de origen controlado.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=500" alt="Helado de Fresa Natural">
+                    <h3>Fresa Silvestre</h3>
+                    <p>Delicioso helado frutal preparado con fresas frescas seleccionadas.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=500" alt="Helado de Vainilla Clásica">
+                    <h3>Vainilla Premium</h3>
+                    <p>El clásico e indiscutible sabor a vainilla con una textura sedosa.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Beneficios -->
+        <section id="beneficios">
+            <h2>Beneficios de nuestros helados</h2>
+            <ol>
+                <li><strong>Ingredientes 100% naturales:</strong> Sin aditivos químicos dañinos.</li>
+                <li><strong>Gran variedad de sabores:</strong> Desde tradicionales hasta combinaciones exóticas.</li>
+                <li><strong>Servicio a domicilio rápido:</strong> Para que disfrutes en casa sin que se derritan.</li>
+                <li><strong>Promociones especiales:</strong> Descuentos exclusivos todas las semanas.</li>
+                <li><strong>Productos artesanales frescos:</strong> Elaborados diariamente con amor local.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <!-- Multimedia -->
+        <section id="servicios">
+            <h2>Conoce nuestra heladería</h2>
+            <video width="600" controls>
+                <source src="/Videos/Video de Presentación.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+        </section>
+
+        <hr>
+
+        <!-- Tabla con buscador dinámico -->
+        <section id="tabla">
+            <h2>Catálogo Completo de Productos</h2>
+            
+            <div class="search-box">
+                <input type="text" id="inputBuscador" placeholder="🔍 Buscar sabor, precio o tamaño...">
+            </div>
+
+            <div class="table-container">
+                <table id="tablaHelados">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Sabor Tradicional</th>
+                            <th>Precio Individual</th>
+                            <th>Tamaño Disponible</th>
+                            <th>Disponibilidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Chocolate Suizo</td><td>$8.000</td><td>Grande</td><td>Disponible</td></tr>
+                        <tr><td>2</td><td>Vainilla Francesa</td><td>$7.000</td><td>Mediano</td><td>Disponible</td></tr>
+                        <tr><td>3</td><td>Fresa Intensa</td><td>$8.500</td><td>Grande</td><td>Disponible</td></tr>
+                        <tr><td>4</td><td>Mora Silvestre</td><td>$9.000</td><td>Grande</td><td>Disponible</td></tr>
+                        <tr><td>5</td><td>Mango Tropical</td><td>$7.500</td><td>Pequeño</td><td>Disponible</td></tr>
+                        <tr><td>6</td><td>Limón Exprime</td><td>$6.500</td><td>Mediano</td><td>Disponible</td></tr>
+                        <tr><td>7</td><td>Café Expreso</td><td>$8.000</td><td>Grande</td><td>Disponible</td></tr>
+                        <tr><td>8</td><td>Arequipe Gourmet</td><td>$9.000</td><td>Grande</td><td>Disponible</td></tr>
+                        <tr><td>9</td><td>Chicle Azul</td><td>$7.000</td><td>Mediano</td><td>Disponible</td></tr>
+                        <tr><td>10</td><td>Coco de la Costa</td><td>$8.000</td><td>Grande</td><td>Disponible</td></tr>
+                        <tr><td>11</td><td>Oreo Cookies</td><td>$10.000</td><td>Grande</td><td>Disponible</td></tr>
+                        <tr><td>12</td><td>Frutos Rojos Mix</td><td>$9.500</td><td>Grande</td><td>Disponible</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Blog -->
+        <section id="blog">
+            <h2>Nuestro Blog y Novedades</h2>
+            <div class="blog-layout">
+                <article>
+                    <h3>El origen del Helado Artesanal</h3>
+                    <p>Mucha gente piensa que el helado viene de Italia, pero las primeras recetas se remontan a mezclas de nieve y frutas en la antigua China. Hoy en día lo perfeccionamos usando las mejores técnicas locales...</p>
+                </article>
+                <aside>
+                    <h3>Dato Curioso 💡</h3>
+                    <p>¿Sabías que el sabor más vendido del mundo sigue siendo la Vainilla? ¡Visítanos y dinos si prefieres romper la regla con nuestro chocolate!</p>
+                </aside>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ===================================== -->
+<!-- ACERCA DE -->
+<!-- ===================================== -->
+
+<section id="acerca" class="acerca">
+
+    <div class="acerca-contenido">
+
+        <div class="acerca-texto">
+
+            <h2>🍦 Acerca de Frosty Delights</h2>
+
+            <p>
+                <strong>Frosty Delights</strong> nació con el propósito de llevar alegría y sabor a cada uno de nuestros clientes mediante helados artesanales elaborados con ingredientes frescos y de alta calidad.
+            </p>
+
+            <p>
+                Nuestro compromiso es ofrecer una experiencia única con una gran variedad de sabores, malteadas, granizados, postres fríos y promociones especiales para compartir en familia, con amigos o en cualquier celebración.
+            </p>
+
+            <p>
+                Además de nuestros deliciosos productos, contamos con paquetes especiales para cumpleaños, piñatas, eventos empresariales y reuniones familiares, convirtiendo cada momento en un recuerdo inolvidable.
+            </p>
+
+            <p>
+                En <strong>Frosty Delights</strong> creemos que un helado no es solo un postre, sino una forma de compartir sonrisas, crear recuerdos y disfrutar los pequeños momentos de la vida.
+            </p>
+
+            <a href="#productos" class="btn-acerca">
+                Ver nuestros productos 🍨
+            </a>
+
+        </div>
+
+        <div class="acerca-imagen">
+
+            <img src="/frontend/images/Logo.png" width="200px" height="190px" alt="Frosty Delights">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PROMOCIONES -->
+<!-- ========================= -->
+
+<section id="promociones" class="promociones">
+
+    <h2>🎉 Promociones Especiales del Martes</h2>
+    <p class="promo-texto">
+        ¡No te pierdas nuestras mejores ofertas de la semana!
+    </p>
+
+    <div class="promociones-container">
+
+        <div class="promo-card">
+            <img src="/frontend/images/Promo1.png" width="200px" height="190px" alt="2x1 en Helados">
+            <h3>🍦 2x1 en Helados</h3>
+            <p>Compra un helado y lleva otro totalmente gratis.</p>
+            <span class="precio">$15.000</span>
+        </div>
+
+        <div class="promo-card">
+            <img src="/frontend/images/Promo2.png" width="200px" height="190px" alt="Combo Familiar">
+            <h3>👨‍👩‍👧‍👦 Combo Familiar</h3>
+            <p>4 helados + 2 toppings + 2 bebidas.</p>
+            <span class="precio">$38.000</span>
+        </div>
+
+        <div class="promo-card">
+            <img src="/frontend/images/Promo3.png" width="200px" height="190px" alt="Malteada">
+            <h3>🥤 Malteada Gratis</h3>
+            <p>Por compras superiores a $50.000 recibe una malteada gratis.</p>
+            <span class="precio">Promoción</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================= -->
+<!-- HELADOS PARA FIESTAS Y PIÑATAS -->
+<!-- ======================================= -->
+
+<section id="fiestas" class="fiestas">
+
+    <h2>🎉 Helados para Fiestas y Piñatas</h2>
+
+    <p class="fiestas-texto">
+        En <strong>Frosty Delights</strong> hacemos que tus celebraciones sean aún más dulces.
+        Ofrecemos paquetes especiales para cumpleaños, piñatas, reuniones familiares,
+        eventos escolares y empresariales.
+    </p>
+
+    <div class="fiestas-container">
+
+        <div class="fiesta-card">
+            <img src="/frontend/images/Fiesta.1.png" alt="Paquete Infantil">
+
+            <h3>🎂 Paquete Infantil</h3>
+
+            <ul>
+                <li>🍦 20 Helados</li>
+                <li>🎈 Decoración temática</li>
+                <li>🥄 Vasos y cucharas</li>
+            </ul>
+
+            <span>$85.000</span>
+
+        </div>
+
+        <div class="fiesta-card">
+
+            <img src="/frontend/images/Fiesta.2.png" alt="Paquete Familiar">
+
+            <h3>👨‍👩‍👧‍👦 Paquete Familiar</h3>
+
+            <ul>
+                <li>🍨 40 Helados</li>
+                <li>🥤 10 Malteadas</li>
+                <li>🍫 Toppings ilimitados</li>
+            </ul>
+
+            <span>$160.000</span>
+
+        </div>
+
+        <div class="fiesta-card">
+
+            <img src="/frontend/images/Fiesta.3.png" alt="Paquete Premium">
+
+            <h3>🎊 Paquete Premium</h3>
+
+            <ul>
+                <li>🍦 60 Helados</li>
+                <li>🥤 20 Malteadas</li>
+                <li>🍭 Barra de toppings</li>
+                <li>🎉 Atención para eventos</li>
+            </ul>
+
+            <span>$260.000</span>
+
+        </div>
+
+    </div>
+
+</section>
+        <!-- Mapa -->
+        <section id="mapa">
+            <h2>Ubicación de la empresa</h2>
+            <p style="text-align:center; margin-bottom: 15px;">📍 Visítanos en el corazón de Medellín, Antioquia</p>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31734.72340199258!2d-75.581211!3d6.244203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4429adfdb35ffb%3A0x8b6eacb58f2c299!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1718582000000!5m2!1ses!2sco"
+                width="100%" height="400" allowfullscreen="" loading="lazy">
+            </iframe>
+        </section>
+
+        <hr>
+
+        <!-- Formulario de Contacto -->
+        <section id="contacto">
+            <h2>Contáctanos para Eventos</h2>
+            <form id="formContacto">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" required>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" placeholder="Ingrese su correo" required>
+
+                <label for="telefono">Número Telefónico:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su número telefónico" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+                <button type="submit">Enviar Mensaje</button>
+                <div id="alertaContacto" class="mensaje-alerta mensaje-exito"></div>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Formulario de Suscripción -->
+        <section id="suscripcion">
+            <h2>Suscríbete a nuestras promociones</h2>
+            <p style="text-align:center; margin-bottom: 15px;">Recibe descuentos y anuncios de nuevos sabores en tu correo electrónico.</p>
+            <form id="formSuscripcion">
+                <label for="emailSuscripcion">Correo Electrónico:</label>
+                <input type="email" id="emailSuscripcion" name="emailSuscripcion" placeholder="Ingrese su correo electrónico" required>
+                <button type="submit">Suscribirse</button>
+                <div id="alertaSuscripcion" class="mensaje-alerta mensaje-exito"></div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+
+    <div class="footer-contenido">
+
+        <!-- Información -->
+        <div class="footer-info">
+            <h3>🍦 Frosty Delights</h3>
+            <p>El sabor que refresca tus momentos.</p>
+            <p>Curso en Informática.</p>
+        </div>
+
+        <!-- Menú -->
+        <div class="footer-links">
+            <h3>Enlaces</h3>
+
+            <a href="https://canva.link/a3047n0kkcx2j7g" target="_blank">
+                Inicio
+            </a>
+
+            <a href="https://canva.link/rhegxznlxhmn28g" target="_blank">
+                Video Frosty Delights
+            </a>
+
+            <a href="https://wa.me/3168516938" target="_blank">
+                Contacto
+            </a>
+
+            <a href="https://canva.link/705lcugqujsbstj" target="_blank">
+                Blog
+            </a>
+
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+
+            <h3>Suscríbete</h3>
+
+            <form action="https://accounts.google.com/" method="POST" target="_blank">
+
+                <input type="email"
+                       placeholder="Correo electrónico"
+                       class="footer__input"
+                       required>
+
+                <button type="submit">
+                    Registrarse
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Redes Sociales -->
+    <div class="footer__social">
+
+        <a href="https://www.facebook.com/share/19mmxHXdFE/" target="_blank" class="footer__icons">
+        <img src="/frontend/images/apps/facebook.png" width="30px" height="30px" alt="Facebook" class="footer__img">
+    </a>
+
+    <a href="https://x.com/MemeXp35753" target="_blank" class="footer__icons">
+        <img src="/frontend/images/apps/X.png" width="30px" height="30px" alt="X" class="footer__img">
+    </a>
+
+    <a href="https://youtube.com/@jhonalexanderquimbayomesa6269?si=g7guRpqSe2vfmwAG" target="_blank" class="footer__icons">
+        <img src="/frontend/images/apps/youtube.png"  width="30px" height="30px" alt="YouTube" class="footer__img">
+    </a>
+
+    <a href="https://wa.me/3168516938" target="_blank" class="footer__icons">
+        <img src="/frontend/images/apps/WhatsApp.png" width="30px" height="30px" alt="WhatsApp" class="footer__img">
+    </a>
+
+    </div>
+
+    <!-- Derechos -->
+    <div class="copyright">
+        © 2026 Frosty Delights | Derechos reservados - Jhon Alexander Quimbayo Mesa
+    </div>
+
+</footer>
+
+    <!-- LÓGICA JAVASCRIPT INTEGRADA -->
+    <script>
+/* ===================================== */
+/* FROSTY DELIGHTS - index.js */
+/* ===================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("🍦 Frosty Delights cargado correctamente.");
+
+    /* ========================= */
+    /* MENÚ ACTIVO */
+    /* ========================= */
+
+    const enlaces = document.querySelectorAll(".nav-links a");
+
+    enlaces.forEach(enlace => {
+        enlace.addEventListener("click", function () {
+
+            enlaces.forEach(item => item.classList.remove("activo"));
+            this.classList.add("activo");
+
+        });
+    });
+
+    /* ========================= */
+    /* EFECTO EN BOTONES */
+    /* ========================= */
+
+    const botones = document.querySelectorAll("button, .btn-read");
+
+    botones.forEach(boton => {
+
+        boton.addEventListener("mouseenter", () => {
+            boton.style.transform = "scale(1.05)";
+        });
+
+        boton.addEventListener("mouseleave", () => {
+            boton.style.transform = "scale(1)";
+        });
+
+    });
+
+    /* ========================= */
+    /* EFECTO EN IMÁGENES */
+    /* ========================= */
+
+    const imagenes = document.querySelectorAll("img");
+
+    imagenes.forEach(img => {
+
+        img.addEventListener("mouseenter", () => {
+            img.style.transition = "0.3s";
+            img.style.transform = "scale(1.05)";
+        });
+
+        img.addEventListener("mouseleave", () => {
+            img.style.transform = "scale(1)";
+        });
+
+    });
+
+    /* ========================= */
+    /* MENSAJE DEL FORMULARIO */
+    /* ========================= */
+
+    const formulario = document.querySelector(".contact-form");
+
+    if (formulario) {
+
+        formulario.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            alert("✅ Gracias por contactarnos. Tu información fue enviada correctamente.");
+
+            formulario.reset();
+
+        });
+
+    }
+
+    /* ========================= */
+    /* NEWSLETTER */
+    /* ========================= */
+
+    const newsletter = document.querySelector(".footer-newsletter form");
+
+    if (newsletter) {
+
+        newsletter.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const correo = this.querySelector("input[type='email']").value;
+
+            if (correo === "") {
+
+                alert("⚠ Debes ingresar un correo electrónico.");
+
+                return;
+
+            }
+
+            alert("🎉 ¡Gracias por suscribirte a Frosty Delights!");
+
+            this.reset();
+
+        });
+
+    }
+
+});
+
+/*=========================================
+      FROSTY DELIGHTS - JAVASCRIPT
+=========================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("🍦 Frosty Delights cargado correctamente.");
+
+    /*=========================================
+            MENSAJE DE BIENVENIDA
+    =========================================*/
+
+    setTimeout(() => {
+        alert("🍦 ¡Bienvenido a Frosty Delights!\nDisfruta nuestros deliciosos helados y promociones.");
+    }, 800);
+
+
+    /*=========================================
+            SCROLL SUAVE DEL MENÚ
+    =========================================*/
+
+    document.querySelectorAll('a[href^="#"]').forEach(ancla => {
+
+        ancla.addEventListener("click", function(e){
+
+            e.preventDefault();
+
+            const destino = document.querySelector(this.getAttribute("href"));
+
+            if(destino){
+
+                destino.scrollIntoView({
+                    behavior:"smooth"
+                });
+
+            }
+
+        });
+
+    });
+
+
+    /*=========================================
+            EFECTO EN TARJETAS
+    =========================================*/
+
+    const tarjetas = document.querySelectorAll(".card, .promo-card");
+
+    tarjetas.forEach(card=>{
+
+        card.addEventListener("mouseenter",()=>{
+
+            card.style.transform="translateY(-10px)";
+            card.style.transition=".4s";
+
+        });
+
+        card.addEventListener("mouseleave",()=>{
+
+            card.style.transform="translateY(0px)";
+
+        });
+
+    });
+
+
+    /*=========================================
+            EFECTO EN IMÁGENES
+    =========================================*/
+
+    const imagenes=document.querySelectorAll("img");
+
+    imagenes.forEach(img=>{
+
+        img.addEventListener("mouseover",()=>{
+
+            img.style.transition=".3s";
+            img.style.transform="scale(1.05)";
+
+        });
+
+        img.addEventListener("mouseout",()=>{
+
+            img.style.transform="scale(1)";
+
+        });
+
+    });
+
+
+    /*=========================================
+            BOTONES
+    =========================================*/
+
+    const botones=document.querySelectorAll("button");
+
+    botones.forEach(btn=>{
+
+        btn.addEventListener("click",()=>{
+
+            btn.style.transform="scale(.95)";
+
+            setTimeout(()=>{
+
+                btn.style.transform="scale(1)";
+
+            },150);
+
+        });
+
+    });
+
+
+    /*=========================================
+            FORMULARIO DE CONTACTO
+    =========================================*/
+
+    const formulario=document.querySelector(".contact-form");
+
+    if(formulario){
+
+        formulario.addEventListener("submit",(e)=>{
+
+            e.preventDefault();
+
+            alert("✅ Gracias por contactarnos.\nMuy pronto responderemos tu mensaje.");
+
+            formulario.reset();
+
+        });
+
+    }
+
+
+    /*=========================================
+            NEWSLETTER
+    =========================================*/
+
+    const newsletter=document.querySelector(".footer-newsletter form");
+
+    if(newsletter){
+
+        newsletter.addEventListener("submit",(e)=>{
+
+            e.preventDefault();
+
+            const email=newsletter.querySelector("input[type=email]").value;
+
+            if(email===""){
+
+                alert("⚠ Debes ingresar un correo.");
+
+                return;
+
+            }
+
+            alert("🎉 ¡Gracias por suscribirte a Frosty Delights!");
+
+            newsletter.reset();
+
+        });
+
+    }
+
+
+    /*=========================================
+            PROMOCIONES
+    =========================================*/
+
+    const promociones=document.querySelectorAll(".promo-card");
+
+    promociones.forEach(promo=>{
+
+        promo.addEventListener("click",()=>{
+
+            alert("🍦 Promoción agregada.\nPregunta por ella en nuestra tienda.");
+
+        });
+
+    });
+
+
+    /*=========================================
+            CONTADOR DE VISITAS
+    =========================================*/
+
+    let visitas=localStorage.getItem("visitas");
+
+    if(visitas==null){
+
+        visitas=1;
+
+    }else{
+
+        visitas=parseInt(visitas)+1;
+
+    }
+
+    localStorage.setItem("visitas",visitas);
+
+    console.log("Número de visitas:",visitas);
+
+
+    /*=========================================
+            BOTÓN VOLVER ARRIBA
+    =========================================*/
+
+    const subir=document.createElement("button");
+
+    subir.innerHTML="⬆";
+
+    subir.style.position="fixed";
+    subir.style.bottom="20px";
+    subir.style.right="20px";
+    subir.style.width="50px";
+    subir.style.height="50px";
+    subir.style.borderRadius="50%";
+    subir.style.border="none";
+    subir.style.background="#ff4d6d";
+    subir.style.color="white";
+    subir.style.fontSize="20px";
+    subir.style.cursor="pointer";
+    subir.style.display="none";
+    subir.style.zIndex="999";
+
+    document.body.appendChild(subir);
+
+    window.addEventListener("scroll",()=>{
+
+        if(window.scrollY>300){
+
+            subir.style.display="block";
+
+        }else{
+
+            subir.style.display="none";
+
+        }
+
+    });
+
+    subir.addEventListener("click",()=>{
+
+        window.scrollTo({
+
+            top:0,
+            behavior:"smooth"
+
+        });
+
+    });
+
+
+    /*=========================================
+            RELOJ
+    =========================================*/
+
+    function horaActual(){
+
+        const fecha=new Date();
+
+        console.log("Hora:",fecha.toLocaleTimeString());
+
+    }
+
+    setInterval(horaActual,1000);
+
+});
+
+/* ===========================================
+   FROSTY DELIGHTS
+   index.js
+=========================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    console.log("🍦 Frosty Delights cargado correctamente.");
+
+    /*=========================
+      MENSAJE DE BIENVENIDA
+    =========================*/
+
+    setTimeout(function () {
+        alert("🍦 ¡Bienvenido a Frosty Delights!\nDisfruta nuestros deliciosos helados.");
+    }, 1000);
+
+
+    /*=========================
+      MENÚ ACTIVO
+    =========================*/
+
+    const enlaces = document.querySelectorAll(".nav__links");
+
+    enlaces.forEach(link => {
+
+        link.addEventListener("click", function () {
+
+            enlaces.forEach(item => item.classList.remove("activo"));
+
+            this.classList.add("activo");
+
+        });
+
+    });
+
+
+    /*=========================
+      EFECTO EN TARJETAS
+    =========================*/
+
+    const tarjetas = document.querySelectorAll(".card, .promo-card, .fiesta-card");
+
+    tarjetas.forEach(card => {
+
+        card.addEventListener("mouseenter", () => {
+
+            card.style.transition = ".4s";
+            card.style.transform = "translateY(-10px)";
+
+        });
+
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform = "translateY(0px)";
+
+        });
+
+    });
+
+
+    /*=========================
+      EFECTO EN IMÁGENES
+    =========================*/
+
+    const imagenes = document.querySelectorAll("img");
+
+    imagenes.forEach(imagen => {
+
+        imagen.addEventListener("mouseover", () => {
+
+            imagen.style.transition = ".3s";
+            imagen.style.transform = "scale(1.05)";
+
+        });
+
+        imagen.addEventListener("mouseout", () => {
+
+            imagen.style.transform = "scale(1)";
+
+        });
+
+    });
+
+
+    /*=========================
+      BOTONES
+    =========================*/
+
+    const botones = document.querySelectorAll("button");
+
+    botones.forEach(btn => {
+
+        btn.addEventListener("click", () => {
+
+            btn.style.transform = "scale(.95)";
+
+            setTimeout(() => {
+
+                btn.style.transform = "scale(1)";
+
+            }, 150);
+
+        });
+
+    });
+
+
+    /*=========================
+      PROMOCIONES
+    =========================*/
+
+    const promociones = document.querySelectorAll(".promo-card");
+
+    promociones.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            alert("🎉 ¡Promoción seleccionada!\nPregunta por ella en Frosty Delights.");
+
+        });
+
+    });
+
+
+    /*=========================
+      PAQUETES PARA FIESTAS
+    =========================*/
+
+    const fiestas = document.querySelectorAll(".fiesta-card");
+
+    fiestas.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            alert("🎈 Gracias por tu interés.\nPronto nos comunicaremos contigo para organizar tu fiesta.");
+
+        });
+
+    });
+
+
+    /*=========================
+      FORMULARIO CONTACTO
+    =========================*/
+
+    const formulario = document.querySelector(".contact-form");
+
+    if (formulario) {
+
+        formulario.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            alert("✅ Gracias por contactarnos.");
+
+            formulario.reset();
+
+        });
+
+    }
+
+
+    /*=========================
+      NEWSLETTER
+    =========================*/
+
+    const newsletter = document.querySelector(".footer__form");
+
+    if (newsletter) {
+
+        newsletter.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const correo = this.querySelector(".footer__input").value;
+
+            if (correo == "") {
+
+                alert("⚠ Debes ingresar un correo.");
+
+                return;
+
+            }
+
+            alert("🎉 Gracias por suscribirte a Frosty Delights.");
+
+            this.reset();
+
+        });
+
+    }
+
+
+    /*=========================
+      CONTADOR DE VISITAS
+    =========================*/
+
+    let visitas = localStorage.getItem("visitas");
+
+    if (visitas == null) {
+
+        visitas = 1;
+
+    } else {
+
+        visitas++;
+
+    }
+
+    localStorage.setItem("visitas", visitas);
+
+    console.log("Número de visitas:", visitas);
+
+
+    /*=========================
+      BOTÓN VOLVER ARRIBA
+    =========================*/
+
+    const boton = document.createElement("button");
+
+    boton.innerHTML = "⬆";
+
+    boton.style.position = "fixed";
+    boton.style.right = "25px";
+    boton.style.bottom = "25px";
+    boton.style.width = "55px";
+    boton.style.height = "55px";
+    boton.style.border = "none";
+    boton.style.borderRadius = "50%";
+    boton.style.background = "#ff4d6d";
+    boton.style.color = "white";
+    boton.style.fontSize = "22px";
+    boton.style.cursor = "pointer";
+    boton.style.display = "none";
+    boton.style.boxShadow = "0 5px 15px rgba(0,0,0,.3)";
+    boton.style.zIndex = "999";
+
+    document.body.appendChild(boton);
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 250) {
+
+            boton.style.display = "block";
+
+        } else {
+
+            boton.style.display = "none";
+
+        }
+
+    });
+
+    boton.addEventListener("click", function () {
+
+        window.scrollTo({
+
+            top: 0,
+            behavior: "smooth"
+
+        });
+
+    });
+
+
+    /*=========================
+      RELOJ
+    =========================*/
+
+    function mostrarHora() {
+
+        const ahora = new Date();
+
+        console.log("Hora actual:", ahora.toLocaleTimeString());
+
+    }
+
+    setInterval(mostrarHora, 1000);
+
+});
+    </script>
+</body>
+</html>

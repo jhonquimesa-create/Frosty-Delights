@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frosty Delights - Helados Artesanales</title>
-    <link rel="shortcut icon" href="/frontend/images/Logo Frosty Delights .png" type="image/x-icon">
+    <link rel="shortcut icon" href="frontend/images/Logo Frosty Delights .png" type="image/x-icon">
     <style>
         /* --- ESTILOS GENERALES Y COLORES VIVOS --- */
         :root {
@@ -309,7 +309,7 @@
             background-color: #019875;
         }
 
-        /* MENSÁJE DE CONFIRMACIÓN DINÁMICO */
+        /* MENSAJE DE CONFIRMACIÓN DINÁMICO */
         .mensaje-alerta {
             padding: 12px;
             border-radius: 8px;
@@ -324,7 +324,6 @@
             color: #155724;
             border: 1px solid #c3e6cb;
         }
-
 
         /* --- ACERCA, PROMOCIONES Y FIESTAS --- */
         .acerca-contenido {
@@ -442,24 +441,6 @@
             object-fit: contain;
         }
 
-        @media (max-width: 768px) {
-            .acerca-contenido {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .acerca-imagen {
-                flex-basis: auto;
-            }
-
-            .card,
-            .promo-card,
-            .fiesta-card {
-                width: 100%;
-                max-width: 320px;
-            }
-        }
-
         /* --- PIE DE PÁGINA --- */
         footer {
             background-color: var(--color-texto);
@@ -507,6 +488,21 @@
                 flex-direction: column;
                 gap: 10px;
             }
+            .acerca-contenido {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .acerca-imagen {
+                flex-basis: auto;
+            }
+
+            .card,
+            .promo-card,
+            .fiesta-card {
+                width: 100%;
+                max-width: 320px;
+            }
             .blog-layout {
                 flex-direction: column;
             }
@@ -534,7 +530,7 @@
                 <li><a href="#tabla">Catálogo</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contacto">Contacto</a></li>
-                <li><a href="./login.html">login</a></li>
+                <li><a href="login.html">login</a></li>
             </ul>
         </nav>
     </header>
@@ -594,7 +590,7 @@
         <section id="servicios">
             <h2>Conoce nuestra heladería</h2>
             <video width="600" controls>
-                <source src="/Videos/Video de Presentación.mp4" type="video/mp4">
+                <source src="Videos/Video de Presentación.mp4" type="video/mp4">
                 Tu navegador no soporta videos.
             </video>
         </section>
@@ -657,155 +653,92 @@
 
         <hr>
 
-        <!-- ===================================== -->
-<!-- ACERCA DE -->
-<!-- ===================================== -->
+        <!-- ACERCA DE -->
+        <section id="acerca" class="acerca">
+            <div class="acerca-contenido">
+                <div class="acerca-texto">
+                    <h2>🍦 Acerca de Frosty Delights</h2>
+                    <p><strong>Frosty Delights</strong> nació con el propósito de llevar alegría y sabor a cada uno de nuestros clientes mediante helados artesanales elaborados con ingredientes frescos y de alta calidad.</p>
+                    <p>Nuestro compromiso es ofrecer una experiencia única con una gran variedad de sabores, malteadas, granizados, postres fríos y promociones especiales para compartir en familia, con amigos o en cualquier celebración.</p>
+                    <p>Además de nuestros deliciosos productos, contamos con paquetes especiales para cumpleaños, piñatas, eventos empresariales y reuniones familiares, convirtiendo cada momento en un recuerdo inolvidable.</p>
+                    <p>En <strong>Frosty Delights</strong> creemos que un helado no es solo un postre, sino una forma de compartir sonrisas, crear recuerdos y disfrutar los pequeños momentos de la vida.</p>
+                    <a href="#productos" class="btn-acerca">Ver nuestros productos 🍨</a>
+                </div>
+                <div class="acerca-imagen">
+                    <img src="frontend/images/Logo.png" width="200" height="190" alt="Frosty Delights">
+                </div>
+            </div>
+        </section>
 
-<section id="acerca" class="acerca">
+        <!-- PROMOCIONES -->
+        <section id="promociones" class="promociones">
+            <h2>🎉 Promociones Especiales del Martes</h2>
+            <p class="promo-texto">¡No te pierdas nuestras mejores ofertas de la semana!</p>
+            <div class="promociones-container">
+                <div class="promo-card">
+                    <img src="frontend/images/Promo1.png" width="200" height="190" alt="2x1 en Helados">
+                    <h3>🍦 2x1 en Helados</h3>
+                    <p>Compra un helado y lleva otro totalmente gratis.</p>
+                    <span class="precio">$15.000</span>
+                </div>
+                <div class="promo-card">
+                    <img src="frontend/images/Promo2.png" width="200" height="190" alt="Combo Familiar">
+                    <h3>👨‍👩‍👧‍👦 Combo Familiar</h3>
+                    <p>4 helados + 2 toppings + 2 bebidas.</p>
+                    <span class="precio">$38.000</span>
+                </div>
+                <div class="promo-card">
+                    <img src="frontend/images/Promo3.png" width="200" height="190" alt="Malteada">
+                    <h3>🥤 Malteada Gratis</h3>
+                    <p>Por compras superiores a $50.000 recibe una malteada gratis.</p>
+                    <span class="precio">Promoción</span>
+                </div>
+            </div>
+        </section>
 
-    <div class="acerca-contenido">
-
-        <div class="acerca-texto">
-
-            <h2>🍦 Acerca de Frosty Delights</h2>
-
-            <p>
-                <strong>Frosty Delights</strong> nació con el propósito de llevar alegría y sabor a cada uno de nuestros clientes mediante helados artesanales elaborados con ingredientes frescos y de alta calidad.
+        <!-- HELADOS PARA FIESTAS Y PIÑATAS -->
+        <section id="fiestas" class="fiestas">
+            <h2>🎉 Helados para Fiestas y Piñatas</h2>
+            <p class="fiestas-texto">
+                En <strong>Frosty Delights</strong> hacemos que tus celebraciones sean aún más dulces.
+                Ofrecemos paquetes especiales para cumpleaños, piñatas, reuniones familiares,
+                eventos escolares y empresariales.
             </p>
+            <div class="fiestas-container">
+                <div class="fiesta-card">
+                    <img src="frontend/images/Fiesta.1.png" alt="Paquete Infantil">
+                    <h3>🎂 Paquete Infantil</h3>
+                    <ul>
+                        <li>🍦 20 Helados</li>
+                        <li>🎈 Decoración temática</li>
+                        <li>🥄 Vasos y cucharas</li>
+                    </ul>
+                    <span>$85.000</span>
+                </div>
+                <div class="fiesta-card">
+                    <img src="frontend/images/Fiesta.2.png" alt="Paquete Familiar">
+                    <h3>👨‍👩‍👧‍👦 Paquete Familiar</h3>
+                    <ul>
+                        <li>🍨 40 Helados</li>
+                        <li>🥤 10 Malteadas</li>
+                        <li>🍫 Toppings ilimitados</li>
+                    </ul>
+                    <span>$160.000</span>
+                </div>
+                <div class="fiesta-card">
+                    <img src="frontend/images/Fiesta.3.png" alt="Paquete Premium">
+                    <h3>🎊 Paquete Premium</h3>
+                    <ul>
+                        <li>🍦 60 Helados</li>
+                        <li>🥤 20 Malteadas</li>
+                        <li>🍭 Barra de toppings</li>
+                        <li>🎉 Atención para eventos</li>
+                    </ul>
+                    <span>$260.000</span>
+                </div>
+            </div>
+        </section>
 
-            <p>
-                Nuestro compromiso es ofrecer una experiencia única con una gran variedad de sabores, malteadas, granizados, postres fríos y promociones especiales para compartir en familia, con amigos o en cualquier celebración.
-            </p>
-
-            <p>
-                Además de nuestros deliciosos productos, contamos con paquetes especiales para cumpleaños, piñatas, eventos empresariales y reuniones familiares, convirtiendo cada momento en un recuerdo inolvidable.
-            </p>
-
-            <p>
-                En <strong>Frosty Delights</strong> creemos que un helado no es solo un postre, sino una forma de compartir sonrisas, crear recuerdos y disfrutar los pequeños momentos de la vida.
-            </p>
-
-            <a href="#productos" class="btn-acerca">
-                Ver nuestros productos 🍨
-            </a>
-
-        </div>
-
-        <div class="acerca-imagen">
-
-            <img src="/frontend/images/Logo.png" width="200px" height="190px" alt="Frosty Delights">
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================= -->
-<!-- PROMOCIONES -->
-<!-- ========================= -->
-
-<section id="promociones" class="promociones">
-
-    <h2>🎉 Promociones Especiales del Martes</h2>
-    <p class="promo-texto">
-        ¡No te pierdas nuestras mejores ofertas de la semana!
-    </p>
-
-    <div class="promociones-container">
-
-        <div class="promo-card">
-            <img src="/frontend/images/Promo1.png" width="200px" height="190px" alt="2x1 en Helados">
-            <h3>🍦 2x1 en Helados</h3>
-            <p>Compra un helado y lleva otro totalmente gratis.</p>
-            <span class="precio">$15.000</span>
-        </div>
-
-        <div class="promo-card">
-            <img src="/frontend/images/Promo2.png" width="200px" height="190px" alt="Combo Familiar">
-            <h3>👨‍👩‍👧‍👦 Combo Familiar</h3>
-            <p>4 helados + 2 toppings + 2 bebidas.</p>
-            <span class="precio">$38.000</span>
-        </div>
-
-        <div class="promo-card">
-            <img src="/frontend/images/Promo3.png" width="200px" height="190px" alt="Malteada">
-            <h3>🥤 Malteada Gratis</h3>
-            <p>Por compras superiores a $50.000 recibe una malteada gratis.</p>
-            <span class="precio">Promoción</span>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ======================================= -->
-<!-- HELADOS PARA FIESTAS Y PIÑATAS -->
-<!-- ======================================= -->
-
-<section id="fiestas" class="fiestas">
-
-    <h2>🎉 Helados para Fiestas y Piñatas</h2>
-
-    <p class="fiestas-texto">
-        En <strong>Frosty Delights</strong> hacemos que tus celebraciones sean aún más dulces.
-        Ofrecemos paquetes especiales para cumpleaños, piñatas, reuniones familiares,
-        eventos escolares y empresariales.
-    </p>
-
-    <div class="fiestas-container">
-
-        <div class="fiesta-card">
-            <img src="/frontend/images/Fiesta.1.png" alt="Paquete Infantil">
-
-            <h3>🎂 Paquete Infantil</h3>
-
-            <ul>
-                <li>🍦 20 Helados</li>
-                <li>🎈 Decoración temática</li>
-                <li>🥄 Vasos y cucharas</li>
-            </ul>
-
-            <span>$85.000</span>
-
-        </div>
-
-        <div class="fiesta-card">
-
-            <img src="/frontend/images/Fiesta.2.png" alt="Paquete Familiar">
-
-            <h3>👨‍👩‍👧‍👦 Paquete Familiar</h3>
-
-            <ul>
-                <li>🍨 40 Helados</li>
-                <li>🥤 10 Malteadas</li>
-                <li>🍫 Toppings ilimitados</li>
-            </ul>
-
-            <span>$160.000</span>
-
-        </div>
-
-        <div class="fiesta-card">
-
-            <img src="/frontend/images/Fiesta.3.png" alt="Paquete Premium">
-
-            <h3>🎊 Paquete Premium</h3>
-
-            <ul>
-                <li>🍦 60 Helados</li>
-                <li>🥤 20 Malteadas</li>
-                <li>🍭 Barra de toppings</li>
-                <li>🎉 Atención para eventos</li>
-            </ul>
-
-            <span>$260.000</span>
-
-        </div>
-
-    </div>
-
-</section>
         <!-- Mapa -->
         <section id="mapa">
             <h2>Ubicación de la empresa</h2>
@@ -857,87 +790,54 @@
 
     <!-- PIE DE PÁGINA -->
     <footer class="footer">
+        <div class="footer-contenido">
+            <!-- Información -->
+            <div class="footer-info">
+                <h3>🍦 Frosty Delights</h3>
+                <p>El sabor que refresca tus momentos.</p>
+                <p>Curso en Informática.</p>
+            </div>
 
-    <div class="footer-contenido">
+            <!-- Menú -->
+            <div class="footer-links">
+                <h3>Enlaces</h3>
+                <a href="https://canva.link/a3047n0kkcx2j7g" target="_blank">Inicio</a>
+                <a href="https://canva.link/rhegxznlxhmn28g" target="_blank">Video Frosty Delights</a>
+                <a href="https://wa.me/3168516938" target="_blank">Contacto</a>
+                <a href="https://canva.link/705lcugqujsbstj" target="_blank">Blog</a>
+            </div>
 
-        <!-- Información -->
-        <div class="footer-info">
-            <h3>🍦 Frosty Delights</h3>
-            <p>El sabor que refresca tus momentos.</p>
-            <p>Curso en Informática.</p>
+            <!-- Newsletter -->
+            <div class="footer-newsletter">
+                <h3>Suscríbete</h3>
+                <form class="footer__form">
+                    <input type="email" placeholder="Correo electrónico" class="footer__input" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+            </div>
         </div>
 
-        <!-- Menú -->
-        <div class="footer-links">
-            <h3>Enlaces</h3>
-
-            <a href="https://canva.link/a3047n0kkcx2j7g" target="_blank">
-                Inicio
+        <!-- Redes Sociales -->
+        <div class="footer__social">
+            <a href="https://www.facebook.com/share/19mmxHXdFE/" target="_blank" class="footer__icons">
+                <img src="frontend/images/apps/facebook.png" width="30" height="30" alt="Facebook" class="footer__img">
             </a>
-
-            <a href="https://canva.link/rhegxznlxhmn28g" target="_blank">
-                Video Frosty Delights
+            <a href="https://x.com/MemeXp35753" target="_blank" class="footer__icons">
+                <img src="frontend/images/apps/X.png" width="30" height="30" alt="X" class="footer__img">
             </a>
-
-            <a href="https://wa.me/3168516938" target="_blank">
-                Contacto
+            <a href="https://youtube.com/@jhonalexanderquimbayomesa6269?si=g7guRpqSe2vfmwAG" target="_blank" class="footer__icons">
+                <img src="frontend/images/apps/youtube.png" width="30" height="30" alt="YouTube" class="footer__img">
             </a>
-
-            <a href="https://canva.link/705lcugqujsbstj" target="_blank">
-                Blog
+            <a href="https://wa.me/3168516938" target="_blank" class="footer__icons">
+                <img src="frontend/images/apps/WhatsApp.png" width="30" height="30" alt="WhatsApp" class="footer__img">
             </a>
-
         </div>
 
-        <!-- Newsletter -->
-        <div class="footer-newsletter">
-
-            <h3>Suscríbete</h3>
-
-            <form class="footer__form">
-
-                <input type="email"
-                       placeholder="Correo electrónico"
-                       class="footer__input"
-                       required>
-
-                <button type="submit">
-                    Registrarse
-                </button>
-
-            </form>
-
+        <!-- Derechos -->
+        <div class="copyright">
+            © 2026 Frosty Delights | Derechos reservados - Jhon Alexander Quimbayo Mesa
         </div>
-
-    </div>
-
-    <!-- Redes Sociales -->
-    <div class="footer__social">
-
-        <a href="https://www.facebook.com/share/19mmxHXdFE/" target="_blank" class="footer__icons">
-        <img src="/frontend/images/apps/facebook.png" width="30px" height="30px" alt="Facebook" class="footer__img">
-    </a>
-
-    <a href="https://x.com/MemeXp35753" target="_blank" class="footer__icons">
-        <img src="/frontend/images/apps/X.png" width="30px" height="30px" alt="X" class="footer__img">
-    </a>
-
-    <a href="https://youtube.com/@jhonalexanderquimbayomesa6269?si=g7guRpqSe2vfmwAG" target="_blank" class="footer__icons">
-        <img src="/frontend/images/apps/youtube.png"  width="30px" height="30px" alt="YouTube" class="footer__img">
-    </a>
-
-    <a href="https://wa.me/3168516938" target="_blank" class="footer__icons">
-        <img src="/frontend/images/apps/WhatsApp.png" width="30px" height="30px" alt="WhatsApp" class="footer__img">
-    </a>
-
-    </div>
-
-    <!-- Derechos -->
-    <div class="copyright">
-        © 2026 Frosty Delights | Derechos reservados - Jhon Alexander Quimbayo Mesa
-    </div>
-
-</footer>
+    </footer>
 
     <!-- JAVASCRIPT -->
     <script>
@@ -999,51 +899,10 @@
         if (newsletter) {
             newsletter.addEventListener("submit", (e) => {
                 e.preventDefault();
-                alert("🎉 ¡Gracias por suscribirte a Frosty Delights!");
+                alert("🎉 ¡Gracias por registrarte a nuestro boletín!");
                 newsletter.reset();
             });
         }
-
-        // Efectos de tarjetas
-        document.querySelectorAll(".card, .promo-card, .fiesta-card").forEach(card => {
-            card.addEventListener("mouseenter", () => {
-                card.style.transform = "translateY(-8px)";
-            });
-            card.addEventListener("mouseleave", () => {
-                card.style.transform = "translateY(0)";
-            });
-        });
-
-        // Botón volver arriba
-        const botonSubir = document.createElement("button");
-        botonSubir.type = "button";
-        botonSubir.innerHTML = "⬆";
-        botonSubir.setAttribute("aria-label", "Volver arriba");
-        botonSubir.style.cssText = `
-            position: fixed;
-            right: 25px;
-            bottom: 25px;
-            width: 52px;
-            height: 52px;
-            border: none;
-            border-radius: 50%;
-            background: #ff477e;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-            display: none;
-            z-index: 9999;
-            box-shadow: 0 5px 15px rgba(0,0,0,.25);
-        `;
-        document.body.appendChild(botonSubir);
-
-        window.addEventListener("scroll", () => {
-            botonSubir.style.display = window.scrollY > 300 ? "block" : "none";
-        });
-
-        botonSubir.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
     });
     </script>
 </body>
